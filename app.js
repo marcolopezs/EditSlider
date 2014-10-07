@@ -3,7 +3,7 @@ $(function(){
 	$("#editarNo").hide();
 	$("#editarSi").show();
 
-	var TextoContenido = '<div class="texto"><span>Texto</span><a class="candado unlock" href="javascript:;"><i class="fa fa-unlock"></i></a><a class="editar" href="javascript:;"><i class="fa fa-pencil"></i></a></div>';
+	
 
 	
 	$("#estilos-texto a").on("click", function(){
@@ -13,6 +13,10 @@ $(function(){
 	});
 
 	$("#agregar").on("click", function(){
+		var aleatorio = Math.floor(Math.random() * 999985) + 15;
+
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><span>Texto</span><a class="candado unlock" href="javascript:;"><i class="fa fa-unlock"></i></a><a class="editar" href="javascript:;"><i class="fa fa-pencil"></i></a></div>';		
+
 		$("#contenido-texto").append(TextoContenido);
 
 		//ARRASTRAR
