@@ -27,6 +27,12 @@ body{
 	z-index: 100;
 }
 
+.texto a, .texto a:hover{
+	background: #000;
+	color: #fff;
+	padding: 5px;
+}
+
 #estilos-texto, #estilos-divisiones{
 	background-color: #2CA0FB;
 }
