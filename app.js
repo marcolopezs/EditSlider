@@ -10,7 +10,7 @@ $(function(){
 
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
 
-		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i> EditarSi</a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i> EditarNo</a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i> EstilosSi</a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i> EstilosNo</a></div>';
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i> EditarSi</a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i> EditarNo</a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i> EstilosSi</a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i> EstilosNo</a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i> Eliminar</a></div>';
 
 		$("#contenido-texto").append(TextoContenido);
 
@@ -67,6 +67,12 @@ $(function(){
 			$("#estilos-texto").removeClass().hide();
 		});
 
+		//ELIMINAR DIV
+		$(".eliminar").on("click", function(){
+			var id = $(this).attr("id");
+			$("div#"+id).remove();
+		});
+
 	});
 
 	$("#enviar").on("click", function(){
@@ -84,7 +90,7 @@ $(function(){
 				"x":valor.offsetLeft,
 				"y":valor.offsetTop };
 	    };
-	    	    
+
 	    $("#enlace").show();
 		$("#enlace").attr("target","_blank");
 	    $("#enlace").attr("href","slider.php?json="+JSON.stringify(json));
