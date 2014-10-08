@@ -1,8 +1,6 @@
 <?php
 //VARIABLES
-$TextoEstilos=$_REQUEST["estilo"];
-$TextoX=$_REQUEST["textoX"];
-$TextoY=$_REQUEST["textoY"];
+$array=json_decode($_REQUEST["json"]);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,31 +55,25 @@ $TextoY=$_REQUEST["textoY"];
 	<div class="tp-banner-container">
 		<div class="tp-banner" >
 			<ul>
+
 				<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
 
 					<!-- MAIN IMAGE -->
 					<img  alt="slidebg1" data-lazyload="images/slidebg1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 					<!-- LAYERS -->
 
+					<?php for($i=0; $i<count($array); $i++){ ?>
+
 					<!-- LAYER NR. 4 -->
-					<div class="<?php echo $TextoEstilos; ?> tp-resizeme"
-						data-x="<?php echo $TextoX; ?>"
-						data-y="<?php echo $TextoY; ?>" 
+					<div class="<?php echo $array[$i]->class; ?> tp-resizeme"
+						data-x="<?php echo $array[$i]->x; ?>"
+						data-y="<?php echo $array[$i]->y; ?>" 
 						data-speed="500"
 						data-start="800"
-						data-easing="Power3.easeInOut">INFORME
+						data-easing="Power3.easeInOut"><?php echo $array[$i]->texto; ?>
 					</div>
 
-					<!-- LAYER NR. 8 
-					<div class="tp-caption modern_big_redbg tp-resizeme"
-						data-x="34"
-						data-y="318" 
-						data-speed="500"
-						data-start="950"
-						data-easing="Power3.easeInOut">
-						<div style="text-align:center;">
-							La verdad sobre Hamas</div>
-					</div>-->
+					<?php } ?>				
 
 				</li>
 	
