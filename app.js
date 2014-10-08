@@ -2,23 +2,23 @@ $(function(){
 	$("#enlace").hide();
 	$("#editarNo").hide();
 	$("#editarSi").show();
+	$("#estilos-texto").hide();
 	
-	$("#estilos-texto a").on("click", function(){
-		var estilo = $(this).attr("id");
-		$(".texto div").removeClass();
-		$(".texto div").addClass("tp-caption "+estilo);
-	});
-
 	$("#agregar").on("click", function(){
+		
+		$("#estilos-texto").removeClass().hide();
+
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
 
-		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><a class="candado unlock" href="javascript:;"><i class="fa fa-unlock"></i></a><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i> EditarSi</a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i> EditarNo</a></div>';
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i> EditarSi</a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i> EditarNo</a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i> EstilosSi</a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i> EstilosNo</a></div>';
 
 		$("#contenido-texto").append(TextoContenido);
 
 		//OCULTAR BOTONES
-		$(".editarNo").hide();
-		$(".editarSi").show();
+		$(".editarNo").hide(); //DE EDICION
+		$(".editarSi").show(); //DE EDICION
+		$(".estilosNo").hide(); //DE ESTILOS
+		$(".estilosSi").show(); //DE ESTILOS
 
 		//ARRASTRAR
 		$('.texto').draggable({disabled:false});
@@ -28,7 +28,7 @@ $(function(){
 			var id = $(this).attr("id");
 			$(this).hide();
 			$("#"+id+".editarNo").show();
-			$('div#'+id).draggable({disabled:true});
+			$("div#"+id).draggable({disabled:true});
 			$("#"+id+" div").attr("contenteditable", "true");
 		});
 
@@ -38,17 +38,35 @@ $(function(){
 			$(this).hide();
 			$("#"+id+".editarSi").show();
 			$("#editarSi").show();
-			$('div#'+id).draggable({disabled:false});
+			$("div#"+id).draggable({disabled:false});
 			$("#"+id+" div").attr("contenteditable", "false");
 		});
 
-	});
+		//SELECCIONAR ESTILO DE LETRA
+		$(".estilosSi").on("click", function(){
+			var id = $(this).attr("id");
+			$(this).hide();
+			$("#"+id+".estilosNo").show();
+			$("#estilos-texto").show();
+			$("#estilos-texto").removeClass().addClass(id);
 
-	//CANDADO
-	$("a.candado").on("click", function(){
-		alert("hola");
-		//$(this).addClass("unlock");
-		//$(this).addClass("lock");
+			$("#estilos-texto a").on("click", function(){
+				var id = $("#estilos-texto").attr("class");
+				var estilo = $(this).attr("id");
+				$("#"+id+".texto div").removeClass();
+				$("#"+id+".texto div").addClass("tp-caption "+estilo);
+			});
+
+		});
+
+		//OCULTAR SELECCION DE ESTILOS
+		$(".estilosNo").on("click", function(){
+			var id = $(this).attr("id");
+			$(this).hide();
+			$("#"+id+".estilosSi").show();
+			$("#estilos-texto").removeClass().hide();
+		});
+
 	});
 
 	$("#enviar").on("click", function(){

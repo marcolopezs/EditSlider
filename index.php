@@ -19,9 +19,7 @@
 
 		<div id="contenido-texto"></div>
 
-	</div>
-
-	
+	</div>	
 
 </div>
 
