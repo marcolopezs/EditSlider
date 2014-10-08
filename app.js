@@ -5,7 +5,7 @@ $(function(){
 	$("#estilos-texto").hide();
 	
 	$("#agregar").on("click", function(){
-		
+
 		$("#estilos-texto").removeClass().hide();
 
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
@@ -70,17 +70,24 @@ $(function(){
 	});
 
 	$("#enviar").on("click", function(){
-		var TextoEstilo = $(".texto div").attr("class");;
-		TextoX = texto.position().left;
-	    TextoY = texto.position().top;
 
-	    console.log(TextoX);
-	    console.log(TextoY);
-	    console.log(TextoEstilo);
+	    var get = $("#contenido-texto").get(0);
+	    var cantidad = get.childElementCount;
+	    var json = [];
 
+		for(var i = 0; i < cantidad; i++){
+			var valor = get.childNodes[i];
+			json[i]= {
+				"id":valor.id,
+				"class":valor.firstChild.className,
+				"texto":valor.firstChild.innerText,
+				"x":valor.offsetLeft,
+				"y":valor.offsetTop };
+	    };
+	    	    
 	    $("#enlace").show();
 		$("#enlace").attr("target","_blank");
-	    $("#enlace").attr("href","slider.php?estilo="+TextoEstilo+"&textoX="+TextoX+"&textoY="+TextoY);
+	    $("#enlace").attr("href","slider.php?json="+JSON.stringify(json));
 
 	});
 
