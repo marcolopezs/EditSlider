@@ -89,7 +89,6 @@
 	<a href="javascript:;" id="small_light_white" class="tp-caption small_light_white">Texto</a>
 	<a href="javascript:;" id="large_bg_black" class="tp-caption large_bg_black">Texto</a>
 	<a href="javascript:;" id="mediumwhitebg" class="tp-caption mediumwhitebg">Texto</a>
-	<a href="javascript:;" id="medium_bg_orange_new1" class="tp-caption medium_bg_orange_new1">Texto</a>
 </div>
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
