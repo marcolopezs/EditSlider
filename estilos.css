@@ -27,10 +27,16 @@ body{
 	z-index: 100;
 }
 
+.texto span{
+	float: left;
+	margin-left: -30px;
+}
+
 .texto a, .texto a:hover{
 	background: #000;
 	color: #fff;
 	padding: 5px;
+	display: block;
 }
 
 #estilos-texto, #estilos-divisiones{
@@ -43,6 +49,10 @@ body{
 	text-decoration: none;
 }
 
-.tp-caption{
+#estilos-texto .tp-caption{
 	position: relative !important;
+}
+
+.activado{
+	color: #f00 !important;
 }
