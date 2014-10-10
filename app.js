@@ -59,6 +59,15 @@ $(function(){
 					$("div#"+id+" div").css("font-size", ui.value);
 				}
 		    });
+
+		    $("#colorpicker").spectrum({
+				preferredFormat: "hex",
+				showInput: true,
+				hide: function(c){ 
+					Color = c.toRgbString();
+					$("div#"+id+" div").css('color', Color);
+				}	
+			});
 		});
 
 		//OCULTAR SELECCION DE ESTILOS
