@@ -3,6 +3,8 @@ $(function(){
 	$("#editarNo").hide();
 	$("#editarSi").show();
 	$("#estilos-texto").hide();
+	$("#fondoSi").hide();
+	$("#fondoNo").show();
 	
 	$("#agregar").on("click", function(){
 
@@ -91,6 +93,18 @@ $(function(){
 			$("div#"+id).remove();
 		});
 
+	});
+
+	$("#fondoNo").on("click", function(){
+		$(this).hide();
+		$("#fondoSi").show();
+		$("#contenido-texto").css("background", "none");		
+	});
+
+	$("#fondoSi").on("click", function(){
+		$(this).hide();
+		$("#fondoNo").show();
+		$("#contenido-texto").css("background", "rgba(0,0,0,0.5)");		
 	});
 
 	$("#enviar").on("click", function(){
