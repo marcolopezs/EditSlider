@@ -32,24 +32,14 @@ $array=json_decode($_REQUEST["json"]);
 
 	<!-- GOOGLE FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
-	
-	<!-- HEADER -->
-	<header class="header">
-		<section class="container">
-			<article class="logo-container"><a href="http://themes.themepunch.com/?theme=revolution_jq"><div class="logo"></div></a></article>
-			<div class="button-holder"><a href="http://codecanyon.net/item/slider-revolution-responsive-jquery-plugin/2580848" target="_blank" class="button"><strong>BUY NOW</strong></a></div>
-			<div style="clear:both"></div>
-		</section>
-	</header> <!-- END OF HEADER -->
-
-
 	<!-- START REVOLUTION SLIDER 4.5.0 fullwidth mode -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
 
 
 	<div class="tp-banner-container">
@@ -65,7 +55,7 @@ $array=json_decode($_REQUEST["json"]);
 					<?php for($i=0; $i<count($array); $i++){ ?>
 
 					<!-- LAYER NR. 4 -->
-					<div class="<?php echo $array[$i]->class; ?> tp-resizeme"
+					<div style="font-size: <?php echo $array[$i]->tamano; ?>px; color: #<?php echo $array[$i]->color; ?>" class="tp-caption tp-resizeme"
 						data-x="<?php echo $array[$i]->x; ?>"
 						data-y="<?php echo $array[$i]->y; ?>" 
 						data-speed="500"
