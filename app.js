@@ -10,7 +10,7 @@ $(function(){
 
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
 
-		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a></span></div>';
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano"></div><div id="'+aleatorio+'" class="textoColor"></div></span></div>';
 
 		$("#contenido-texto").append(TextoContenido);
 
@@ -19,6 +19,8 @@ $(function(){
 		$(".editarSi").show(); //DE EDICION
 		$(".estilosNo").hide(); //DE ESTILOS
 		$(".estilosSi").show(); //DE ESTILOS
+		$(".textoTamano").hide(); //TAMAÑO DE TEXTO
+		$(".textoColor").hide(); //COLOR DE TEXTO
 
 		//ARRASTRAR
 		$('.texto').draggable({disabled:false});
@@ -57,15 +59,22 @@ $(function(){
 				max: 120,
 				slide: function( event, ui ) {
 					$("div#"+id+" div").css("font-size", ui.value);
+					$("div#"+id+".textoTamano").text(ui.value);
 				}
 		    });
 
 		    $("#colorpicker").spectrum({
 				preferredFormat: "hex",
 				showInput: true,
-				hide: function(c){ 
-					Color = c.toRgbString();
+				move: function(cM) {
+				    Color = cM.toHexString();
 					$("div#"+id+" div").css('color', Color);
+					$("div#"+id+".textoColor").text(Color);
+				},
+				hide: function(cH){ 
+					Color = cH.toHexString();
+					$("div#"+id+" div").css('color', Color);
+					$("div#"+id+".textoColor").text(Color);
 				}	
 			});
 		});
@@ -96,8 +105,9 @@ $(function(){
 			var valor = get.childNodes[i];
 			json[i]= {
 				"id":valor.id,
-				"class":valor.firstChild.className,
 				"texto":valor.firstChild.innerText,
+				"tamano": valor.childNodes[1].childNodes[5].innerText,
+				"color": valor.childNodes[1].childNodes[6].innerText,
 				"x":valor.offsetLeft,
 				"y":valor.offsetTop };
 	    };
