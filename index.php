@@ -36,8 +36,8 @@
 
 </div>
 
-<a id="editarSi" href="javascript:;">EDITAR</a>
-<a id="editarNo" href="javascript:;">TERMINAR</a>
+<a id="fondoNo" href="javscript:;">OCULTAR TRANSPARENCIA</a>
+<a id="fondoSi" href="javscript:;">MOSTRAR TRANSPARENCIA</a>
 
 <a id="agregar" href="javascript:;">AGREGAR</a>
 
