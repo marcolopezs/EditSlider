@@ -50,13 +50,15 @@ $(function(){
 			$("#estilos-texto").show();
 			$("#estilos-texto").removeClass().addClass(id);
 
-			$("#estilos-texto a").on("click", function(){
-				var id = $("#estilos-texto").attr("class");
-				var estilo = $(this).attr("id");
-				$("#"+id+".texto div").removeClass();
-				$("#"+id+".texto div").addClass("tp-caption "+estilo);
-			});
-
+			$( "#texto-tamano-slide" ).slider({
+				range: "min",
+				value: 16,
+				min: 12,
+				max: 120,
+				slide: function( event, ui ) {
+					$("div#"+id+" div").css("font-size", ui.value);
+				}
+		    });
 		});
 
 		//OCULTAR SELECCION DE ESTILOS
