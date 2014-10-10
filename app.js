@@ -67,14 +67,12 @@ $(function(){
 				preferredFormat: "hex",
 				showInput: true,
 				move: function(cM) {
-				    Color = cM.toHexString();
-					$("div#"+id+" div").css('color', Color);
-					$("div#"+id+".textoColor").text(Color);
+				    $("div#"+id+" div").css('color', cM.toHexString());
+					$("div#"+id+".textoColor").text(cM.toHex());
 				},
 				hide: function(cH){ 
-					Color = cH.toHexString();
-					$("div#"+id+" div").css('color', Color);
-					$("div#"+id+".textoColor").text(Color);
+					$("div#"+id+" div").css('color', cH.toHexString());
+					$("div#"+id+".textoColor").text(cH.toHex());
 				}	
 			});
 		});
