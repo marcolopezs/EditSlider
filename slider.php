@@ -36,10 +36,6 @@ $array=json_decode($_REQUEST["json"]);
 </head>
 <body>
 
-	<!-- START REVOLUTION SLIDER 4.5.0 fullwidth mode -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
-
 	<div class="tp-banner-container">
 		<div class="tp-banner" >
 			<ul>
@@ -71,7 +67,7 @@ $array=json_decode($_REQUEST["json"]);
 
 		</div>
 
-	</div>	
+	</div>
 
 			<script type="text/javascript">
 
