@@ -20,7 +20,6 @@ $array=json_decode($_REQUEST["json"]);
     <!-- THE PREVIEW STYLE SHEETS, NO NEED TO LOAD IN YOUR DOM -->
     <link rel="stylesheet" type="text/css" href="css/noneed.css" media="screen" />
 
-
     <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->    
      <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>   
     <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
@@ -41,7 +40,6 @@ $array=json_decode($_REQUEST["json"]);
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
 
-
 	<div class="tp-banner-container">
 		<div class="tp-banner" >
 			<ul>
@@ -49,7 +47,7 @@ $array=json_decode($_REQUEST["json"]);
 				<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
 
 					<!-- MAIN IMAGE -->
-					<img  alt="slidebg1" data-lazyload="images/slidebg1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+					<img  alt="seabg1" data-lazyload="images/seabg1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 					<!-- LAYERS -->
 
 					<?php for($i=0; $i<count($array); $i++){ ?>
@@ -77,8 +75,7 @@ $array=json_decode($_REQUEST["json"]);
 
 			<script type="text/javascript">
 
-				jQuery(document).ready(function() {
-				
+				jQuery(document).ready(function() {			
 					
 								
 					jQuery('.tp-banner').show().revolution(
