@@ -167,22 +167,18 @@
 
 <div id="opciones-estilos">
 
-	<h3>Lista de estilos</h3>
-
-	<div id="estilos-texto">
-		
+	<div class="opciones">
 		<h4>Tamaño</h4>
 		<div id="texto-tamano-slide"></div>
-
-		<h4>Color</h4>
-		<div id="texto-color">
-			<fieldset>
-				Color: <input type="text" name="colorpicker" id="colorpicker" class="gui-input" />
-			</fieldset>
-		</div>
-		
 	</div>
 
+	<div class="opciones">
+		<h4>Color</h4>
+		<div id="texto-color">
+			<fieldset><input type="text" name="colorpicker" id="colorpicker" class="gui-input" /></fieldset>
+		</div>
+	</div>
+		
 </div>
 
 </body>
