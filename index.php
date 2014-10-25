@@ -158,7 +158,7 @@
 
 	<ul>
 		<li><a id="agregar" href="javascript:;" title="Agrega texto"><i class="fa fa-plus-square-o"></i></a></li>
-		<li><a id="transparencia" href="javascript:;" title="Ocultar transparencia"><i class="fa fa-square-o"></i></a></li>
+		<li><a id="transparencia" href="javascript:;" title="Mostrar/Ocultar transparencia"><i class="fa fa-square"></i></a></li>
 		<li><a id="enviar" href="javascript:;" title="Listo!!!"><i class="fa fa-check-square-o"></i></a></li>
 		<li id="enlace"><a target="_blank" href="javascript:;" title="Vista previa"><i class="fa fa-eye"></i></a></li>
 	</ul>
