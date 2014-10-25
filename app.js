@@ -56,6 +56,7 @@ jApp(function(){
 			jApp("#opciones-estilos").removeClass().addClass(id);
 
 			var textoTamano = jApp("div#"+id+".textoTamano").text();
+			var textoColor = jApp("div#"+id+".textoColor").text();
 
 			jApp("#texto-tamano-slide").slider({
 				range: "min",
@@ -69,6 +70,7 @@ jApp(function(){
 		    });
 
 		    jApp("#colorpicker").spectrum({
+		    	color: "#"+textoColor,
 				preferredFormat: "hex",
 				showInput: true,
 				move: function(cM) {
@@ -117,9 +119,9 @@ jApp(function(){
 			var valor = get.childNodes[i];
 			json[i]= {
 				"id":valor.id,
-				"texto":valor.firstChild.innerText,
-				"tamano": valor.childNodes[1].childNodes[5].innerText,
-				"color": valor.childNodes[1].childNodes[6].innerText,
+				"texto":valor.firstChild.innerHTML,
+				"tamano": valor.childNodes[1].childNodes[5].innerHTML,
+				"color": valor.childNodes[1].childNodes[6].innerHTML,
 				"x":valor.offsetLeft,
 				"y":valor.offsetTop };
 	    };
