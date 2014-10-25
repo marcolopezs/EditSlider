@@ -13,7 +13,7 @@ jApp(function(){
 
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
 
-		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano"></div><div id="'+aleatorio+'" class="textoColor"></div></span></div>';
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano">16</div><div id="'+aleatorio+'" class="textoColor">000000</div></span></div>';
 
 		jApp("#contenido-texto").append(TextoContenido);
 
@@ -55,10 +55,12 @@ jApp(function(){
 			jApp("#opciones-estilos").show();
 			jApp("#opciones-estilos").removeClass().addClass(id);
 
-			jApp( "#texto-tamano-slide" ).slider({
+			var textoTamano = jApp("div#"+id+".textoTamano").text();
+
+			jApp("#texto-tamano-slide").slider({
 				range: "min",
-				value: 16,
-				min: 12,
+				value: textoTamano,
+				min: 16,
 				max: 120,
 				slide: function( event, ui ) {
 					jApp("div#"+id+" div").css("font-size", ui.value);
