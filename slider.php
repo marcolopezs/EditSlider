@@ -79,7 +79,7 @@ $array=json_decode($_REQUEST["json"]);
 						dottedOverlay:"none",
 						delay:16000,
 						startwidth:1170,
-						startheight:700,
+						startheight:600,
 						hideThumbs:200,
 						
 						thumbWidth:100,
