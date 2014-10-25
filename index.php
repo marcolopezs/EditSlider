@@ -55,7 +55,7 @@
 			dottedOverlay:"none",
 			delay:16000,
 			startwidth:1170,
-			startheight:500,
+			startheight:600,
 			hideThumbs:200,
 			
 			thumbWidth:100,
@@ -66,15 +66,15 @@
 			navigationArrows:"solo",
 			navigationStyle:"preview4",
 			
-			touchenabled:"on",
-			onHoverStop:"on",
+			touchenabled:"off",
+			onHoverStop:"off",
 			
 			swipe_velocity: 0.7,
 			swipe_min_touches: 1,
 			swipe_max_touches: 1,
 			drag_block_vertical: false,
 									
-									parallax:"mouse",
+			parallax:"mouse",
 			parallaxBgFreeze:"on",
 			parallaxLevels:[7,4,3,2,5,4,3,2,1,0],
 									
@@ -108,9 +108,7 @@
 			shuffle:"off",
 			
 			autoHeight:"off",						
-			forceFullWidth:"off",						
-									
-									
+			forceFullWidth:"off",	
 									
 			hideThumbsOnMobile:"off",
 			hideNavDelayOnMobile:1500,						
@@ -135,32 +133,16 @@
 </head>
 <body>
 
+	<div id="contenido-texto"></div>
+
 	<div class="tp-banner-container">
-		<div id="contenido"><div id="contenido-texto"></div></div>
 
 		<div class="tp-banner" >
 
 			<ul>
 
 				<li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide">
-
-					<!-- MAIN IMAGE -->
 					<img  alt="seabg1" data-lazyload="images/seabg1.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
-					<!-- LAYERS -->
-
-					<?php for($i=0; $i<count($array); $i++){ ?>
-
-					<!-- LAYER NR. 4 -->
-					<div style="font-size: <?php echo $array[$i]->tamano; ?>px; color: #<?php echo $array[$i]->color; ?>" class="tp-caption tp-resizeme"
-						data-x="<?php echo $array[$i]->x; ?>"
-						data-y="<?php echo $array[$i]->y; ?>" 
-						data-speed="500"
-						data-start="800"
-						data-easing="Power3.easeInOut"><?php echo $array[$i]->texto; ?>
-					</div>
-
-					<?php } ?>				
-
 				</li>
 	
 			</ul>
@@ -171,29 +153,35 @@
 
 	</div>
 
-<a id="fondoNo" href="javscript:;">OCULTAR TRANSPARENCIA</a>
-<a id="fondoSi" href="javscript:;">MOSTRAR TRANSPARENCIA</a>
 
-<a id="agregar" href="javascript:;">AGREGAR</a>
+<div id="opciones">
 
-<a id="enviar" href="javascript:;">Enviar datos</a>
+	<ul>
+		<li><a id="agregar" href="javascript:;"><i class="fa fa-plus-square-o"></i></a></li>
+		<li><a id="enviar" href="javascript:;"><i class="fa fa-check-square-o"></i></a></li>
+		<li><a id="enlace" href="">Vista previa</a></li>
+	</ul>
 
-<a id="enlace" href="">Vista previa</a>
+</div>
 
-<h3>Lista de estilos</h3>
+<div id="opciones-estilos">
 
-<div id="estilos-texto">
-	
-	<h4>Tamaño</h4>
-	<div id="texto-tamano-slide"></div>
+	<h3>Lista de estilos</h3>
 
-	<h4>Color</h4>
-	<div id="texto-color">
-		<fieldset>
-			Color: <input type="text" name="colorpicker" id="colorpicker" class="gui-input" />
-		</fieldset>
+	<div id="estilos-texto">
+		
+		<h4>Tamaño</h4>
+		<div id="texto-tamano-slide"></div>
+
+		<h4>Color</h4>
+		<div id="texto-color">
+			<fieldset>
+				Color: <input type="text" name="colorpicker" id="colorpicker" class="gui-input" />
+			</fieldset>
+		</div>
+		
 	</div>
-	
+
 </div>
 
 </body>
