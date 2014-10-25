@@ -2,24 +2,18 @@ var jApp = jQuery.noConflict();
 
 jApp(function(){
 
-	jApp(document).on("ready", function(){
-		calcCaptionResponsive(".tp-resizeme");
-	});	
-
 	jApp("#enlace").hide();
 	jApp("#editarNo").hide();
 	jApp("#editarSi").show();
-	jApp("#estilos-texto").hide();
+	jApp("#opciones-estilos").hide();
 	jApp("#fondoSi").hide();
 	jApp("#fondoNo").show();
 	
 	jApp("#agregar").on("click", function(){
 
-		jApp("#estilos-texto").removeClass().hide();
-
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
 
-		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div class="tp-resizeme">Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano"></div><div id="'+aleatorio+'" class="textoColor"></div></span></div>';
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano"></div><div id="'+aleatorio+'" class="textoColor"></div></span></div>';
 
 		jApp("#contenido-texto").append(TextoContenido);
 
@@ -32,7 +26,9 @@ jApp(function(){
 		jApp(".textoColor").hide(); //COLOR DE TEXTO
 
 		//ARRASTRAR
-		jApp('.texto').draggable({disabled:false});
+		jApp('.texto').draggable({
+			disabled:false
+		});
 
 		//EDITAR TEXTO
 		jApp(".editarSi").on("click", function(){
@@ -58,8 +54,8 @@ jApp(function(){
 			var id = jApp(this).attr("id");
 			jApp(this).hide();
 			jApp("#"+id+".estilosNo").show().addClass("activado");
-			jApp("#estilos-texto").show();
-			jApp("#estilos-texto").removeClass().addClass(id);
+			jApp("#opciones-estilos").show();
+			jApp("#opciones-estilos").removeClass().addClass(id);
 
 			jApp( "#texto-tamano-slide" ).slider({
 				range: "min",
@@ -91,7 +87,7 @@ jApp(function(){
 			var id = jApp(this).attr("id");
 			jApp(this).hide();
 			jApp("#"+id+".estilosSi").show();
-			jApp("#estilos-texto").removeClass().hide();
+			jApp("#opciones-estilos").removeClass().hide();
 		});
 
 		//ELIMINAR DIV
