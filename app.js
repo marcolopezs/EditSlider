@@ -26,9 +26,7 @@ jApp(function(){
 		jApp(".textoColor").hide(); //COLOR DE TEXTO
 
 		//ARRASTRAR
-		jApp('.texto').draggable({
-			disabled:false
-		});
+		jApp('.texto').draggable({disabled:false});
 
 		//EDITAR TEXTO
 		jApp(".editarSi").on("click", function(){
@@ -98,16 +96,13 @@ jApp(function(){
 
 	});
 
-	jApp("#fondoNo").on("click", function(){
-		jApp(this).hide();
-		jApp("#fondoSi").show();
-		jApp("#contenido-texto").css("background", "none");		
-	});
-
-	jApp("#fondoSi").on("click", function(){
-		jApp(this).hide();
-		jApp("#fondoNo").show();
-		jApp("#contenido-texto").css("background", "rgba(0,0,0,0.5)");		
+	jApp("#transparencia").on("click", function(){
+		var transp = jApp("#contenido-texto").attr("style");
+		if(transp=="background: none;"){
+			jApp("#contenido-texto").attr("style", "");
+		}else{
+			jApp("#contenido-texto").attr("style", "background: none;");
+		}
 	});
 
 	jApp("#enviar").on("click", function(){
@@ -128,8 +123,7 @@ jApp(function(){
 	    };
 
 	    jApp("#enlace").show();
-		jApp("#enlace").attr("target","_blank");
-	    jApp("#enlace").attr("href","slider.php?json="+JSON.stringify(json));
+		jApp("#enlace a").attr("href","slider.php?json="+JSON.stringify(json));
 
 	});
 
