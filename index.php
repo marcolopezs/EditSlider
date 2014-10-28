@@ -178,7 +178,18 @@
 			<fieldset><input type="text" name="colorpicker" id="colorpicker" class="gui-input" /></fieldset>
 		</div>
 	</div>
-		
+
+	<div class="opciones">
+		<h4>Fondo</h4>
+		<div id="texto-fondo-select">
+			<a id="activar" href="javascript:;">Activar</a>
+			<a id="desactivar" href="javascript:;">Desactivar</a>
+		</div>
+		<div id="texto-fondo-color">
+			<fieldset><input type="text" name="colorpicker-fondo" id="colorpicker-fondo" class="gui-input" /></fieldset>
+		</div>
+	</div>
+			
 </div>
 
 </body>
