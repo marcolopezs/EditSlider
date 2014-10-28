@@ -70,7 +70,7 @@ body{
 	display: none;
 }
 
-#opciones-estilos{
+#opciones-estilos, #opciones-estilos-fondo{
 	position: absolute;
 	z-index: 1000;
 	top: 0;
@@ -81,7 +81,7 @@ body{
 	padding: 20px;
 }
 
-#opciones-estilos .opciones {
+#opciones-estilos .opciones, #opciones-estilos-fondo .opciones {
 	margin-bottom: 22px;
 }
 #opciones-estilos .opciones:last-child {
