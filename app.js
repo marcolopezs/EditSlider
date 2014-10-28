@@ -5,30 +5,29 @@ jApp(function(){
 	jApp("#enlace").hide();
 	jApp("#editarNo").hide();
 	jApp("#editarSi").show();
-	jApp("#opciones-estilos").hide();
-	jApp("#fondoSi").hide();
-	jApp("#fondoNo").show();
 
-	//FONDO
-	jApp("#texto-fondo-select #desactivar").hide();
-	jApp("#texto-fondo-color").hide();
+	//CUADRO DE OPCIONES
+	jApp("#opciones-estilos").hide();
+	jApp("#opciones-estilos-fondo").hide();
 	
 	jApp("#agregar").on("click", function(){
 
 		var aleatorio = Math.floor(Math.random() * 999985) + 15;
 
-		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano">16</div><div id="'+aleatorio+'" class="textoColor">000000</div><div id="'+aleatorio+'" class="textoFondoColor"></div></span></div>';
+		var TextoContenido = '<div id="'+aleatorio+'" class="texto"><div>Texto</div><span class="opciones"><a id="'+aleatorio+'" class="editarSi" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="editarNo" href="javascript:;"><i class="fa fa-pencil"></i></a><a id="'+aleatorio+'" class="estilosSi" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="estilosNo" href="javascript:;"><i class="fa fa-font"></i></a><a id="'+aleatorio+'" class="fondoSi" href="javascript:;"><i class="fa fa-square"></i></a><a id="'+aleatorio+'" class="fondoNo" href="javascript:;"><i class="fa fa-square-o"></i></a><a id="'+aleatorio+'" class="eliminar" href="javascript:;"><i class="fa fa-close"></i></a><div id="'+aleatorio+'" class="textoTamano">16</div><div id="'+aleatorio+'" class="textoColor">000000</div><div id="'+aleatorio+'" class="textoFondoColor"></div></span></div>';
 
 		jApp("#contenido-texto").append(TextoContenido);
 
 		//OCULTAR BOTONES
-		jApp(".editarNo").hide(); //DE EDICION
-		jApp(".editarSi").show(); //DE EDICION
-		jApp(".estilosNo").hide(); //DE ESTILOS
-		jApp(".estilosSi").show(); //DE ESTILOS
-		jApp(".textoTamano").hide(); //TAMAÑO DE TEXTO
-		jApp(".textoColor").hide(); //COLOR DE TEXTO
-		jApp(".textoFondoColor").hide(); //FONDO DE TEXTO
+		jApp("#"+aleatorio+".editarNo").hide(); //DE EDICION
+		jApp("#"+aleatorio+".editarSi").show(); //DE EDICION
+		jApp("#"+aleatorio+".estilosNo").hide(); //DE ESTILOS
+		jApp("#"+aleatorio+".estilosSi").show(); //DE ESTILOS
+		jApp("#"+aleatorio+".fondoNo").hide(); //DE FONDO
+		jApp("#"+aleatorio+".fondoSi").show(); //DE FONDO
+		jApp("#"+aleatorio+".textoTamano").hide(); //TAMAÑO DE TEXTO
+		jApp("#"+aleatorio+".textoColor").hide(); //COLOR DE TEXTO
+		jApp("#"+aleatorio+".textoFondoColor").hide(); //FONDO DE TEXTO
 
 		//ARRASTRAR
 		jApp('.texto').draggable({disabled:false});
@@ -89,40 +88,6 @@ jApp(function(){
 				}	
 			});
 
-			//ACTIVACION DE FONDO
-			jApp("#texto-fondo-select #activar").on("click", function(){
-				jApp(this).hide();
-				jApp("#texto-fondo-select #desactivar").show();
-				jApp("#texto-fondo-color").show();
-				jApp("div#"+id+" div").css("background", "#FFFFFF");
-				jApp("div#"+id+".textoFondoColor").text("FFFFFF");
-				jApp("div#"+id+" div").addClass("texto-fondo");
-
-				//COLOR DE FONDO
-				jApp("#colorpicker-fondo").spectrum({
-			    	color: "#FFFFFF",
-					preferredFormat: "hex",
-					showInput: true,
-					move: function(cM) {
-					    jApp("div#"+id+" div").css('background', cM.toHexString());
-						jApp("div#"+id+".textoFondoColor").text(cM.toHex());
-					},
-					hide: function(cH){ 
-						jApp("div#"+id+" div").css('background', cH.toHexString());
-						jApp("div#"+id+".textoFondoColor").text(cH.toHex());
-					}	
-				});
-			});
-
-			jApp("#texto-fondo-select #desactivar").on("click", function(){
-				jApp(this).hide();
-				jApp("div#"+id+" div").css("background", "none");
-				jApp("div#"+id+".textoFondoColor").text("");
-				jApp("div#"+id+" div").removeClass("texto-fondo");
-				jApp("#texto-fondo-select #activar").show();
-				jApp("#texto-fondo-color").hide();
-			});
-
 		});
 
 		//OCULTAR SELECCION DE ESTILOS
@@ -131,6 +96,47 @@ jApp(function(){
 			jApp(this).hide();
 			jApp("#"+id+".estilosSi").show();
 			jApp("#opciones-estilos").removeClass().hide();
+		});
+
+		//SELECCIONAR FONDO
+		jApp(".fondoSi").on("click", function(){
+			var id = jApp(this).attr("id");
+			jApp(this).hide();
+			jApp("#"+id+".fondoNo").show();
+			jApp("#opciones-estilos-fondo").show();
+			jApp("#opciones-estilos-fondo").removeClass().addClass(id);
+
+			jApp("div#"+id+" div").css("background", "#FFFFFF");
+			jApp("div#"+id+".textoFondoColor").text("FFFFFF");
+			jApp("div#"+id+" div").addClass("texto-fondo");
+
+			//COLOR DE FONDO
+			jApp("#colorpicker-fondo").spectrum({
+		    	color: "#FFFFFF",
+				preferredFormat: "hex",
+				showInput: true,
+				move: function(cM) {
+				    jApp("div#"+id+" div").css('background', cM.toHexString());
+					jApp("div#"+id+".textoFondoColor").text(cM.toHex());
+				},
+				hide: function(cH){ 
+					jApp("div#"+id+" div").css('background', cH.toHexString());
+					jApp("div#"+id+".textoFondoColor").text(cH.toHex());
+				}	
+			});
+		});
+
+		jApp("#cerrar").on("click", function(){
+			jApp("#opciones-estilos-fondo").hide();
+		});
+
+		//OCULTAR FONDO
+		jApp(".fondoNo").on("click", function(){
+			var id = jApp(this).attr("id");
+			jApp(this).hide();
+			jApp("#"+id+".fondoSi").show();
+			jApp("div#"+id+" div").removeClass("texto-fondo");
+			jApp("div#"+id+" div").css('background', "none");
 		});
 
 		//ELIMINAR DIV
@@ -161,10 +167,12 @@ jApp(function(){
 			json[i]= {
 				"id":valor.id,
 				"texto":valor.firstChild.innerHTML,
-				"tamano": valor.childNodes[1].childNodes[5].innerHTML,
-				"color": valor.childNodes[1].childNodes[6].innerHTML,
+				"tamano": valor.childNodes[1].childNodes[7].innerHTML,
+				"color": valor.childNodes[1].childNodes[8].innerHTML,
 				"x":valor.offsetLeft,
-				"y":valor.offsetTop };
+				"y":valor.offsetTop,
+				"fondo": valor.childNodes[1].childNodes[9].innerHTML,
+			};
 	    };
 
 	    jApp("#enlace").show();
