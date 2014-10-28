@@ -179,17 +179,19 @@
 		</div>
 	</div>
 
+</div>
+
+<div id="opciones-estilos-fondo">
+
 	<div class="opciones">
 		<h4>Fondo</h4>
-		<div id="texto-fondo-select">
-			<a id="activar" href="javascript:;">Activar</a>
-			<a id="desactivar" href="javascript:;">Desactivar</a>
-		</div>
 		<div id="texto-fondo-color">
 			<fieldset><input type="text" name="colorpicker-fondo" id="colorpicker-fondo" class="gui-input" /></fieldset>
 		</div>
 	</div>
-			
+
+	<a id="cerrar" href="javascript:;">Cerrar</a>
+	
 </div>
 
 </body>
