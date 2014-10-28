@@ -136,6 +136,7 @@ jApp(function(){
 			jApp(this).hide();
 			jApp("#"+id+".fondoSi").show();
 			jApp("div#"+id+" div").removeClass("texto-fondo");
+			jApp("div#"+id+".textoFondoColor").text("");
 			jApp("div#"+id+" div").css('background', "none");
 		});
 
